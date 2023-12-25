@@ -25,7 +25,7 @@ const CreateCourse = () => {
 
       console.log(response.data);
       toast.success("Course Added...", { id: toastId });
-      reset()
+      // reset()
     } catch (error) {
       console.error("Error creating course:", error);
       alert("Failed to create course.");
