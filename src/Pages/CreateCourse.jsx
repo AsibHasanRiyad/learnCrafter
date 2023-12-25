@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const CreateCourse = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
     try {
+      const toastId = toast.loading("Adding....");
       const response = await axiosSecure.post("/api/courses", {
         name: data.name,
         description: data.description,
@@ -22,7 +24,8 @@ const CreateCourse = () => {
       });
 
       console.log(response.data);
-      alert("Course created successfully!");
+      toast.success("Course Added...", { id: toastId });
+      reset()
     } catch (error) {
       console.error("Error creating course:", error);
       alert("Failed to create course.");
@@ -121,7 +124,9 @@ const CreateCourse = () => {
             </div>
             {/*  */}
             <div className="flex justify-end mt-6">
-              <button className=" btn btn-secondary" type="submit">Add</button>
+              <button className=" btn btn-secondary" type="submit">
+                Add
+              </button>
             </div>
           </form>
         </div>

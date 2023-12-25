@@ -6,6 +6,7 @@ import CreateCourse from "../Pages/CreateCourse";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AdminRoutes from "./AdminRoutes";
+import CourseDetails from "../Pages/CourseDetails";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
+      },
+      {
+        path: "/courses/:id",
+        element: <CourseDetails />,
       },
       {
         path: "/createCourses",

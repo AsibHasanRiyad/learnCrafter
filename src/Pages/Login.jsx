@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
 
 const Login = () => {
   //   const [error, setError] = useState("");
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -17,15 +18,14 @@ const Login = () => {
           },
           body: JSON.stringify(data),
         });
-  
-        if (response.ok) {
+        console.log(response);
+        if (response.ok === true) {
           const responseData = await response.json();
           console.log(response);
           localStorage.setItem('token', responseData.accessToken);
-          alert('Registration successful!');
-          // Redirect or update UI as needed
+          toast.success('Logged In...');
+          navigate('/')
         } else {
-          // Handle registration error
           alert('Registration failed.');
         }
       } catch (error) {

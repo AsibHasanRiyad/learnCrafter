@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import Course from "./Course";
 
 const Courses = () => {
   const [courses, setCourses] = useState();
@@ -9,8 +10,13 @@ const Courses = () => {
       setCourses(res.data);
     });
   }, [axiosPublic]);
-  console.log(courses);
-  return <div>courses</div>;
+  return (
+    <div className=" grid grid-cols-2 gap-10 px-10 py-10">
+      {courses?.map((course) => (
+        <Course key={course._id} course={course} />
+      ))}
+    </div>
+  );
 };
 
 export default Courses;
