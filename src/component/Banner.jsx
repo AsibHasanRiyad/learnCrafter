@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <div>
-      <header className="">
+      <header >
         <div className=" py-6 mx-auto">
           <div className="items-center lg:flex">
             <div className="w-full lg:w-1/2">
