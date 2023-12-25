@@ -1,45 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useState } from "react";
-import Swal from "sweetalert2";
 
 const CourseDetails = () => {
   const { id } = useParams();
   const [course, setCourse] = useState();
-  const navigate = useNavigate()
   const axiosSecure = useAxiosSecure();
   axiosSecure.get(`/api/courses/${id}`).then((res) => setCourse(res.data));
-
-//   handel Delete
-  const handleDelete = async (id) => {
-    try {
-      const result = await Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      });
-
-      if (result.isConfirmed) {
-        const res = await axiosSecure.delete(`/api/courses/${id}`);
-        console.log(res.status, "delete");
-
-        if (res.status === 204) {
-          await Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
-          navigate("/courses");
-        }
-      }
-    } catch (error) {
-      console.error("Error occurred:", error);
-    }
-  };
 
   return (
     <div>
@@ -76,10 +43,10 @@ const CourseDetails = () => {
           </p>
           <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
             <span className=" font-medium">Description:</span>{" "}
-            {course?.description} tk
+            {course?.description}
           </p>
         </div>
-        <div className=" flex items-center gap-5 mt-5">
+        {/* <div className=" flex items-center gap-5 mt-5">
           <h1
             href="#"
             className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center  hover:scale-110 transition duration-500 ease-out"
@@ -101,7 +68,7 @@ const CourseDetails = () => {
             </svg>
           </h1>
           <h1
-            onClick={() => handleDelete(course?._id)}
+            // onClick={() => handleDelete(course?._id)}
             href="#"
             className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center  hover:scale-110 transition duration-500 ease-out"
           >
@@ -121,7 +88,7 @@ const CourseDetails = () => {
               />
             </svg>
           </h1>
-        </div>
+        </div> */}
       </div>
     </div>
   );

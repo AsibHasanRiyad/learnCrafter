@@ -22,7 +22,7 @@ const useAxiosSecure = () => {
       return response;
     },
     async (error) => {
-      const status = error.response.status;
+      const status = error?.response?.status;
       console.log("error on the interceptor", status);
 
       return Promise.reject(error);

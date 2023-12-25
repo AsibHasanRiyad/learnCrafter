@@ -9,7 +9,7 @@ const Sidebar = () => {
   };
   return (
     <div>
-      <div className="flex flex-row sm:gap-6">
+      <div className="flex flex-row">
         <div className="sm:w-full sm:max-w-[18rem]">
           <input
             type="checkbox"
@@ -227,7 +227,7 @@ const Sidebar = () => {
             </section>
           </aside>
         </div>
-        <div className="flex w-full flex-col p-4">
+        <div className="flex w-full flex-col">
           <div className="w-fit">
             <label
               htmlFor="sidebar-mobile-fixed"
@@ -250,7 +250,7 @@ const Sidebar = () => {
             </label>
           </div>
           {/* outlet */}
-          <div>
+          <div className="min-h-screen">
             <Outlet />
           </div>
         </div>

@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
-    <div>
+    <div
+    className="px-8"
+    >
       <header >
         <div className=" py-6 mx-auto">
           <div className="items-center lg:flex">
@@ -18,9 +22,11 @@ const Banner = () => {
                   take the first step towards success!
                 </p>
 
+                <Link to={'/courses'}>
                 <button className="w-full px-5 py-2 mt-6 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
                   See Courses
                 </button>
+                </Link>
               </div>
             </div>
 

@@ -25,7 +25,7 @@ const CreateCourse = () => {
 
       console.log(response.data);
       toast.success("Course Added...", { id: toastId });
-      // reset()
+      reset()
     } catch (error) {
       console.error("Error creating course:", error);
       alert("Failed to create course.");
@@ -124,7 +124,7 @@ const CreateCourse = () => {
             </div>
             {/*  */}
             <div className="flex justify-end mt-6">
-              <button className=" btn btn-secondary" type="submit">
+              <button className=" btn btn-primary" type="submit">
                 Add
               </button>
             </div>
