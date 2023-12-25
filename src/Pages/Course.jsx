@@ -31,13 +31,13 @@ const Course = ({ course }) => {
             Class Days: {course?.schedule?.classDays && course?.schedule?.classDays.join(", ")}
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Price: {course?.price} tk
+            Price: {course?.price}
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
             End Date: {course?.schedule?.startDate}
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Description: {course?.description} tk
+            Description: {course?.description}
           </p>
         </div>
         {token && (
